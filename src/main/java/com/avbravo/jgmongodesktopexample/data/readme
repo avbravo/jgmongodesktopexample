@@ -1,0 +1,16 @@
+Pasos:
+Inicie mongodb
+cd /mongodb/bin
+./mongod
+
+El archivo se comprimio para ahorrar espacio
+descomprimar el archivo fantasy_backup.tar.gz
+
+
+
+Restaurar base datos MongoDB
+./mongorestore ~/Descargas/fantasy_backup/
+
+
+Backup Bases datos MongoDB
+./mongodump -d fantasy -o ~/Descargas/fantasy_backup
