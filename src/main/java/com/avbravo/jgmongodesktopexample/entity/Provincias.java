@@ -32,7 +32,7 @@ public class Provincias extends GenericBeans {
 
 //   @SerializedName("Paises")
 //    @DBRef()
-    
+       @Relationships(document = "Sedes", field = "idsede", ispadre = false)
     private Paises paises;
 //    @Relationships(document = "Sedes", field = "idsede", ispadre = false)
 //    @SerializedName("idsede")
@@ -46,7 +46,8 @@ public class Provincias extends GenericBeans {
    
 
     public Document toDocument(Provincias provincias) {
-//        DBRef dbr = new DBRef("paises", id);
+     DBRef dbr = new DBRef("paises", paises);
+     
 //        return Document.parse(getGson().toJson(provincias));
 return toDoc(provincias);
     }
