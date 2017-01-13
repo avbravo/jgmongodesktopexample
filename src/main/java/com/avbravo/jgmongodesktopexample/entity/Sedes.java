@@ -30,23 +30,14 @@ public class Sedes extends GenericBeans {
     private List<Paises> paises;
 
     public Document toDocument(Sedes sedes) {
-        Document doc = new Document();
-        try {                        
-            doc = Document.parse(getGson().toJson(sedes));
-        } catch (Exception e) {
-            System.out.println("toDocument() " + e.getLocalizedMessage());
-        }
-        return doc;
+//          return Document.parse(getGson().toJson(sedes));
+          return toDoc(sedes);
     }
 
     public Sedes toPojo(Document doc) {
-        Sedes sedes = new Sedes();
-        try {
-             sedes = (Sedes) fromJsontoPojo(doc.toJson(), new Sedes().getClass());
-        } catch (Exception e) {
-            System.out.println("toPojo() " + e.getLocalizedMessage());
-        }
-        return sedes;
+        
+//        return (Sedes) fromJsontoPojo(doc.toJson(), new Sedes().getClass());
+return (Sedes)toJava(doc, new Sedes().getClass());
     }
 
     @Override

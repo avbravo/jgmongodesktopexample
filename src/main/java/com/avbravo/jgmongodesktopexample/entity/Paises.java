@@ -30,23 +30,25 @@ public class Paises extends GenericBeans {
     
 
     public Document toDocument(Paises paises) {
-        Document doc = new Document();
-        try {                        
-            doc = Document.parse(getGson().toJson(paises));
-        } catch (Exception e) {
-            System.out.println("toDocument() " + e.getLocalizedMessage());
-        }
-        return doc;
+        return toDoc(paises);
+//        Document doc = new Document();
+//        try {                        
+//            doc = Document.parse(getGson().toJson(paises));
+//        } catch (Exception e) {
+//            System.out.println("toDocument() " + e.getLocalizedMessage());
+//        }
+//        return doc;
     }
 
     public Paises toPojo(Document doc) {
-        Paises paises = new Paises();
-        try {
-             paises = (Paises) fromJsontoPojo(doc.toJson(), new Paises().getClass());
-        } catch (Exception e) {
-            System.out.println("toPojo() " + e.getLocalizedMessage());
-        }
-        return paises;
+//        Paises paises = new Paises();
+//        try {
+//             paises = (Paises) fromJsontoPojo(doc.toJson(), new Paises().getClass());
+//        } catch (Exception e) {
+//            System.out.println("toPojo() " + e.getLocalizedMessage());
+//        }
+//        return paises;
+return (Paises) toJava(doc, new Paises().getClass());
     }
 
     @Override
