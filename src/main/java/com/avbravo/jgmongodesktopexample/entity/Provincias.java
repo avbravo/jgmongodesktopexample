@@ -6,6 +6,7 @@
 package com.avbravo.jgmongodesktopexample.entity;
 
 import com.avbravo.jgmongodesktopexample.ejb.SedesFacade;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.jgmongo.anotaciones.Embedded;
 import com.jgmongo.anotaciones.Id;
@@ -27,13 +28,17 @@ public class Provincias extends GenericBeans {
     @Id
     private String idprovincia;
     private String provincia;
+
+    private  Paises paises;
+//     @Expose(serialize = false, deserialize = false)
+
     //@Embedded
 
 
 //   @SerializedName("Paises")
 //    @DBRef()
-       @Relationships(document = "Sedes", field = "idsede", ispadre = false)
-    private Paises paises;
+//       @Relationships(document = "Sedes", field = "idsede", ispadre = false)
+
 //    @Relationships(document = "Sedes", field = "idsede", ispadre = false)
 //    @SerializedName("idsede")
 //    private Integer idsede;
@@ -46,7 +51,7 @@ public class Provincias extends GenericBeans {
    
 
     public Document toDocument(Provincias provincias) {
-     DBRef dbr = new DBRef("paises", paises);
+//     DBRef dbr = new DBRef("paises", paises);
      
 //        return Document.parse(getGson().toJson(provincias));
 return toDoc(provincias);

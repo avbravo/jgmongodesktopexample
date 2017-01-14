@@ -29,42 +29,44 @@ public class Start {
             PaisesFacade paisesFacade = new PaisesFacade();
             SedesFacade sedesFacade = new SedesFacade();
             ProvinciasFacade provinciasFacade = new ProvinciasFacade();
-            
-            List<Provincias> list = provinciasFacade.findAll();
-            list.forEach((p) -> {
-                System.out.println(" "+p.toString());
-            });
+//            
+//            List<Provincias> list = provinciasFacade.findAll();
+//            list.forEach((p) -> {
+//                System.out.println(" "+p.toString());
+//            });
             
 //                    
 //            Provincias provincias = new Provincias();
 //            provincias.setIdprovincia("6");
 //            Provincias pr = provinciasFacade.findById(provincias);
+//            
 //            if(pr.getIdprovincia() == null){
 //                System.out.println("---> no hay provincia con ese id");
 //            }else{
 //                System.out.println("---> "+pr.toString());
 //            }
             
-//            Paises paises = new Paises();
-//            paises.setSiglas("5");
-//            Paises p = paisesFacade.findById(paises);
-//
-//         if(p.getSiglas() == null){
-//                System.out.println("============================");
-//                System.out.println("no hay paises con siglas "+paises.getSiglas());
-//            }else{
-//                System.out.println("paises: "+p.toString());
-//            }
-//            Provincias provincias = new Provincias();
-//            provincias.setIdprovincia("9");
-//            provincias.setProvincia("Veraguas");
-//            provincias.setPaises(p);
-//            
-//            if(provinciasFacade.save(provincias)){
-//                System.out.println("guardado");
-//            }else{
-//                System.out.println("no se guardo");
-//            }
+            Paises paises = new Paises();
+            paises.setSiglas("pa");
+            Paises p = paisesFacade.findById(paises);
+
+         if(p.getSiglas() == null){
+                System.out.println("============================");
+                System.out.println("no hay paises con siglas "+paises.getSiglas());
+            }else{
+                System.out.println("paises: "+p.toString());
+            }
+            Provincias provincias = new Provincias();
+            provincias.setIdprovincia("2");
+            provincias.setProvincia("Cocle");
+            provincias.setPaises(p);
+          //  provincias.setHola("Hola");
+            
+            if(provinciasFacade.save(provincias)){
+                System.out.println("guardado");
+            }else{
+                System.out.println("no se guardo");
+            }
 //          
 //            List<Paises> list = paisesFacade.findAll();
 //          Sedes sedes = new Sedes();
