@@ -8,10 +8,14 @@ package com.avbravo.jgmongodesktopexample;
 import com.avbravo.jgmongodesktopexample.ejb.PaisesFacade;
 import com.avbravo.jgmongodesktopexample.ejb.ProvinciasFacade;
 import com.avbravo.jgmongodesktopexample.ejb.SedesFacade;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.bson.Document;
 
@@ -31,13 +35,36 @@ public class Start {
             PaisesFacade paisesFacade = new PaisesFacade();
             SedesFacade sedesFacade = new SedesFacade();
             ProvinciasFacade provinciasFacade = new ProvinciasFacade();
-         MongoClient client = new MongoClient("localhost", 27017);
+        
+            
+            MongoClient client = new MongoClient("localhost", 27017);
 		MongoDatabase database = client.getDatabase("fantasy");
 		MongoCollection<Document> collection = database
 				.getCollection("paises");
  
 		List<Document> documents = (List<Document>) collection.find().into(
 				new ArrayList<Document>());
+               
+               
+//Document document = new Document("name","Cuba")
+//        .append("poblacion", 7777);
+//
+//       collection.insertOne(document);
+        
+// DBCollection coll = database.getCollection("mycol");
+               
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat ("dd/MM/yyyy HH:mm:ss a");
+Date startDate = simpleDateFormat.parse(simpleDateFormat.format(new Date())); 
+
+               MongoCollection<BasicDBObject> coll = database.getCollection("paises",BasicDBObject.class);
+                 BasicDBObject doc = new BasicDBObject("title", "OrientDB").
+            append("Fecha",startDate).             
+            append("url", "http://www.tutorialspoint.com/mongodb/").
+            append("by", "tutorials point");
+                coll.insertOne(doc);
+     
+                
+
  
            	for(Document document : documents){
                	System.out.println(document);
